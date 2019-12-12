@@ -5,13 +5,15 @@ using namespace std;
 
 void borders (vector<bool>&status, int i){
 
+    status[i] = !status[i];
+
     if (i < 7){
         status[i+3] = !status[i+3];
     }
     if (i > 3){
         status[i-3] = !status[i-3];
     }
-    if ( i % 3 == 0 && i != 1 && i != 4 && i != 7){ //For the right borders
+    if ( i != 1 && i != 4 && i != 7){ //For the right borders
         status[i-1] = !status[i-1];
     }
 
@@ -22,8 +24,8 @@ void borders (vector<bool>&status, int i){
 }
 
 void read(){
-    vector<int> status(9,0);
-    vector<bool> values (9,1);
+    vector<int> status(10,0);
+    vector<bool> values (10,1);
     int e;
 
     for(int i = 1; i <= 9; ++i){
@@ -31,15 +33,11 @@ void read(){
     }
 
     for (int j = 1; j <= 9; ++j){
-        if (status[j] == 0){
-            continue;
-        }
-        else if (status[j] % 2 == 1){//if it's odd, then change
-            values[j] = !values[j];
+        if (status[j] % 2 == 1){//if it's odd, then change
             borders (values, j);
         }
         else if (status[j] % 2 == 0){//if it's pair, then maintain its value
-            values[j] = values[j];
+            continue;
         }
     }
 
