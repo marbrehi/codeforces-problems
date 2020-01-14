@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define endl '\n'
+#define lli long long int
+#define pb push_back
+
+void read(){
+    return;
+}
+
+int main(){
+    read();
+    return 0;
+}
